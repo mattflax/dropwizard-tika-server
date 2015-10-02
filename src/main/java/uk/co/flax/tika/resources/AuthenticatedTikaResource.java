@@ -36,7 +36,8 @@ import uk.co.flax.tika.auth.User;
  *
  * @author mlp
  */
-public class AuthenticatedTikaResource extends TikaResource {
+@Path("/tika")
+public class AuthenticatedTikaResource extends AbstractTikaResource {
 	
 	@PUT @Path("/{opKey}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -52,7 +53,5 @@ public class AuthenticatedTikaResource extends TikaResource {
 	public String handleGet(@Auth User user) {
 		return handleGet();
 	}
-	
-	
 	
 }
