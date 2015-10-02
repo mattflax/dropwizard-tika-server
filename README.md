@@ -32,6 +32,11 @@ The application has just one endpoint, with three sub-options:
     http://localhost:8080/tika/fulldata
     http://localhost:8080/tika/text
 
+For each of these, the application expects a `PUT` request with the file
+passed in the request body. For example, using `curl` from the command line:
+
+    curl -T example.pdf http://localhost:8080/tika/metadata
+
 Each option will return a JSON object with the following values:
 
 ```
