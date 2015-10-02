@@ -5,3 +5,73 @@ server:
   adminConnectors:
     - type: http
       port: 8081
+
+  # Define request logging
+  requestLog:
+    timeZone: UTC
+    appenders:
+      # Settings for logging to a file.
+      - type: file
+    
+        # The time zone in which dates should be displayed.
+        timeZone: UTC
+    
+        # The file to which statements will be logged.
+        #
+        # If enabled is true, this must be specified.
+        currentLogFilename: logs/dw_tika_request.log
+    
+        # When the log file rolls over, the file will be archived to
+        # app-2012-03-15.log.gz, example.log will be truncated,
+        # and new statements written to it.
+        #
+        # If archive is true, this must be specified.
+        archivedLogFilenamePattern: logs/dw_tika_request-%d.log.gz
+    
+        # The maximum number of log files to archive.
+        archivedFileCount: 5
+    
+      
+# Logging
+logging:
+
+  level: WARN
+
+  loggers:
+    # Set info logging for Flax code
+    "uk.co.flax": INFO
+    
+  appenders:
+    # Set up console logging  
+    - type: console
+      threshold: WARN
+      target: stderr
+      
+    # Set up file logging
+    - type: file
+  
+      # Do not write log statements below this threshold to the file.
+      threshold: ALL
+  
+      # The time zone in which dates should be displayed.
+      timeZone: UTC
+  
+      # A custom Logback format string.
+      logFormat: null
+  
+      # The file to which statements will be logged.
+      #
+      # If enabled is true, this must be specified.
+      currentLogFilename: logs/dw_tika.log
+  
+      # When the log file rolls over, the file will be archived to
+      # app-2012-03-15.log.gz, example.log will be truncated,
+      # and new statements written to it.
+      #
+      # If archive is true, this must be specified.
+      archivedLogFilenamePattern: logs/dw_tika-%d.log.gz
+  
+      # The maximum number of log files to archive.
+      archivedFileCount: 5
+    
+      
