@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -51,11 +52,12 @@ import org.xml.sax.helpers.DefaultHandler;
 import uk.co.flax.tika.api.TikaDocument;
 
 /**
- * JavaDoc for TikaResource.
+ * Resource handler for the /tika endpoint, converting documents
+ * to JSON.
  *
  * @author mlp
  */
-@Path("/tika/{opKey}")
+@Path("/tika")
 public class TikaResource {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(TikaResource.class);
@@ -68,7 +70,7 @@ public class TikaResource {
 	public static final String FULLDATA_OPKEY = "fulldata";
 	public static final String TEXT_OPKEY = "text";
 
-	@PUT
+	@PUT @Path("/{opKey}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public TikaDocument handlePut(@PathParam("opKey") String opKey, 
 			@Context HttpServletRequest request,
@@ -185,6 +187,12 @@ public class TikaResource {
 		}
 		
 		return retMap;
+	}
+	
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String handleGet() {
+		return "Use PUT request with the required document in the request body to convert your document.";
 	}
 	
 }
