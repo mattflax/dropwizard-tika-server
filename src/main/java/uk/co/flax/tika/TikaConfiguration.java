@@ -19,7 +19,7 @@ package uk.co.flax.tika;
 import io.dropwizard.Configuration;
 
 /**
- * JavaDoc for TikaConfiguration.
+ * Configuration class for the Tika server.
  *
  * @author mlp
  */

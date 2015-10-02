@@ -14,29 +14,20 @@
  * limitations under the License.
  */
 
-package uk.co.flax.tika;
+package uk.co.flax.tika.healthchecks;
 
-import io.dropwizard.Application;
-import io.dropwizard.setup.Environment;
-import uk.co.flax.tika.healthchecks.PingHealthcheck;
-import uk.co.flax.tika.resources.TikaResource;
+import com.codahale.metrics.health.HealthCheck;
 
 /**
- * Main class for the Tika server application.
+ * Simple healthcheck.
  *
  * @author mlp
  */
-public class TikaApplication extends Application<TikaConfiguration> {
+public class PingHealthcheck extends HealthCheck {
 
 	@Override
-	public void run(TikaConfiguration config, Environment env) throws Exception {
-		env.jersey().register(new TikaResource());
-		
-		env.healthChecks().register("Ping", new PingHealthcheck());
-	}
-	
-	public static void main(String... args) throws Exception {
-		new TikaApplication().run(args);
+	protected Result check() throws Exception {
+		return Result.healthy();
 	}
 
 }
