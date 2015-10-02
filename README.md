@@ -13,6 +13,10 @@ To build the application, use the following maven command:
 This will build a jar file containing all of the required dependencies in the
 `target` directory.
 
+**Note**: If you are installing to Heroku, the recommendation is to not
+store dependencies in the default maven repository. In this case, uncomment
+the maven-dependency-plugin block in the pom.xml (under the plugins block).
+
 
 ## Running the application
 
