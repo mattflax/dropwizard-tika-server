@@ -14,22 +14,30 @@
  * limitations under the License.
  */
 
-package uk.co.flax.tika;
-
-import io.dropwizard.Configuration;
-import uk.co.flax.tika.config.AuthenticationConfiguration;
+package uk.co.flax.tika.config;
 
 /**
- * Configuration class for the Tika server.
+ * Authentication configuration.
  *
  * @author mlp
  */
-public class TikaConfiguration extends Configuration {
+public class AuthenticationConfiguration {
 	
-	private AuthenticationConfiguration authentication;
+	private boolean enabled;
 	
-	public AuthenticationConfiguration getAuthentication() {
-		return authentication;
+	private String usernameProperty = "AUTH_USERNAME";
+	private String passwordProperty = "AUTH_PASSWORD";
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public String getUsernameProperty() {
+		return usernameProperty;
+	}
+
+	public String getPasswordProperty() {
+		return passwordProperty;
 	}
 
 }

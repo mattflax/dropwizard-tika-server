@@ -24,8 +24,8 @@ The application can be run from the command line using the following:
 
     java -jar target/dropwizard-tika-server-0.1.jar server config/tika.yml
 
-The given config file defines the ports the application will use. No further
-config is required at this time.
+The given config file defines the ports the application will use, logging details,
+and authentication options.
 
 
 ## Usage
@@ -55,6 +55,17 @@ Each option will return a JSON object with the following values:
   }
 }
 ```
+
+
+## Authentication
+
+To enable basic authentication, change the `authentication.enabled` parameter
+in the tika.yml configuration file to `true`. Once this is set, you will need to pass
+the required username and password as system parameters on the command line, like so:
+
+    java -DAUTH_USERNAME=user -DAUTH_PASSWORD=pass -jar dropwizard-tika-server-0.1.jar server config/tika.yml  
+    
+The system properties used may be changed if necessary in the config file.
 
 
 ## Credits

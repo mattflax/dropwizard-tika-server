@@ -17,8 +17,13 @@
 package uk.co.flax.tika;
 
 import io.dropwizard.Application;
+import io.dropwizard.auth.AuthFactory;
+import io.dropwizard.auth.basic.BasicAuthFactory;
 import io.dropwizard.setup.Environment;
+import uk.co.flax.tika.auth.BasicAuthenticator;
+import uk.co.flax.tika.auth.User;
 import uk.co.flax.tika.healthchecks.PingHealthcheck;
+import uk.co.flax.tika.resources.AuthenticatedTikaResource;
 import uk.co.flax.tika.resources.TikaResource;
 
 /**
@@ -30,7 +35,20 @@ public class TikaApplication extends Application<TikaConfiguration> {
 
 	@Override
 	public void run(TikaConfiguration config, Environment env) throws Exception {
-		env.jersey().register(new TikaResource());
+		if (config.getAuthentication().isEnabled()) {
+			// Add authenticator
+			env.jersey().register(AuthFactory.binder(
+					new BasicAuthFactory<User>(
+							new BasicAuthenticator(config.getAuthentication()), 
+							"Protected Tika server", 
+							User.class)));
+
+			// Register the authenticated Tika resource
+			env.jersey().register(new AuthenticatedTikaResource());
+		} else {
+			// Register the non-authenticated Tika resource
+			env.jersey().register(new TikaResource());
+		}
 		
 		env.healthChecks().register("Ping", new PingHealthcheck());
 	}

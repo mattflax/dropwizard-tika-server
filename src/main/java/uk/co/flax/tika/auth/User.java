@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-package uk.co.flax.tika;
-
-import io.dropwizard.Configuration;
-import uk.co.flax.tika.config.AuthenticationConfiguration;
+package uk.co.flax.tika.auth;
 
 /**
- * Configuration class for the Tika server.
+ * Simple User class.
  *
  * @author mlp
  */
-public class TikaConfiguration extends Configuration {
+public class User {
 	
-	private AuthenticationConfiguration authentication;
+	private final boolean authenticated;
 	
-	public AuthenticationConfiguration getAuthentication() {
-		return authentication;
+	public User(boolean auth) {
+		this.authenticated = auth;
+	}
+	
+	public boolean isAuthenticated() {
+		return authenticated;
 	}
 
 }

@@ -31,6 +31,14 @@ server:
         # The maximum number of log files to archive.
         archivedFileCount: 5
     
+    
+# Authentication settings
+authentication:
+  # Is authentication enabled?
+  enabled: false
+  # OPTIONAL - System property for username, password
+  # usernameProperty: AUTH_USERNAME
+  # passwordProperty: AUTH_PASSWORD
       
 # Logging
 logging:
