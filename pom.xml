@@ -16,7 +16,7 @@
 		<!-- Tika version -->
 		<tika.version>1.10</tika.version>
 		<dropwizard.version>0.8.2</dropwizard.version>
-		<mainClass>uk.co.flax.tikaserver.TikaApplication</mainClass>
+		<mainClass>uk.co.flax.tika.TikaApplication</mainClass>
 	</properties>
 	
 	<build>
