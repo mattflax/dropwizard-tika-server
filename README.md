@@ -18,7 +18,7 @@ This will build a jar file containing all of the required dependencies in the
 
 The application can be run from the command line using the following:
 
-    java -jar target/dropwizard-tika-server-1.0.jar server config/tika.yml
+    java -jar target/dropwizard-tika-server-0.1.jar server config/tika.yml
 
 The given config file defines the ports the application will use. No further
 config is required at this time.

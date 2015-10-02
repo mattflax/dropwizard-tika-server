@@ -4,7 +4,7 @@
 	
 	<groupId>uk.co.flax</groupId>
 	<artifactId>dropwizard-tika-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	
 	<name>DropWizard Tika server</name>
 	<description>Tika server wrapped by DropWizard.</description>
