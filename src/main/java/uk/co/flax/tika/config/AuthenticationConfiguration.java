@@ -16,17 +16,24 @@
 
 package uk.co.flax.tika.config;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Authentication configuration.
  *
  * @author mlp
  */
 public class AuthenticationConfiguration {
-	
+
+	private static final String DEFAULT_USERNAME_PROP = "AUTH_USERNAME";
+	private static final String DEFAULT_PASSWORD_PROP = "AUTH_PASSWORD";
+
+	@JsonProperty("enabled")
 	private boolean enabled;
-	
-	private String usernameProperty = "AUTH_USERNAME";
-	private String passwordProperty = "AUTH_PASSWORD";
+	@JsonProperty("usernameProperty")
+	private String usernameProperty = DEFAULT_USERNAME_PROP;
+	@JsonProperty("passwordProperty")
+	private String passwordProperty = DEFAULT_PASSWORD_PROP;
 	
 	public boolean isEnabled() {
 		return enabled;

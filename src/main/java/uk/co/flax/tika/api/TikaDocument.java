@@ -24,6 +24,9 @@ import java.util.Map;
  * @author mlp
  */
 public class TikaDocument {
+
+	public static final String OK_STATUS = "OK";
+	public static final String ERROR_STATUS = "ERROR";
 	
 	private final String status;
 	private final String message;
@@ -31,12 +34,12 @@ public class TikaDocument {
 	private final Map<String, Object> metadata;
 	private final String text;
 	
-	public TikaDocument(String status, String message) {
-		this(status, message, null, null);
+	public TikaDocument(String message) {
+		this(ERROR_STATUS, message, null, null);
 	}
 	
 	public TikaDocument(Map<String, Object> metadata, String text) {
-		this("OK", null, metadata, text);
+		this(OK_STATUS, null, metadata, text);
 	}
 	
 	public TikaDocument(String status, String message, Map<String, Object> metadata, String text) {

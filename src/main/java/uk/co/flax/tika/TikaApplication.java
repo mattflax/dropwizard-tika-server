@@ -38,7 +38,7 @@ public class TikaApplication extends Application<TikaConfiguration> {
 		if (config.getAuthentication().isEnabled()) {
 			// Add authenticator
 			env.jersey().register(AuthFactory.binder(
-					new BasicAuthFactory<User>(
+					new BasicAuthFactory<>(
 							new BasicAuthenticator(config.getAuthentication()), 
 							"Protected Tika server", 
 							User.class)));
