@@ -56,6 +56,12 @@ Each option will return a JSON object with the following values:
 }
 ```
 
+**Note**: by default, curl will add an "Expect: 100-Continue" header to the 
+request which causes problems if running the application behind lighttpd. This
+can be disabled by adding your own empty "Expect" header, like so:
+
+	curl -H "Expect:" -T example.pdf http:://localhost:8080/tika/metadata
+
 
 ## Authentication
 
