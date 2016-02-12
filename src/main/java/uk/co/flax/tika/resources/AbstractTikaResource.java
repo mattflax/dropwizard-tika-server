@@ -170,8 +170,13 @@ abstract class AbstractTikaResource {
 				public org.apache.tika.mime.MediaType detect(InputStream inputStream, Metadata metadata) throws IOException {
 					String ct = metadata.get(CONTENT_TYPE);
 					LOGGER.info("Content type " + ct);
+					org.apache.tika.mime.MediaType type = null;
+					// Make sure we never return null
 					if (ct != null) {
-						return org.apache.tika.mime.MediaType.parse(ct);
+						type = org.apache.tika.mime.MediaType.parse(ct);
+					}
+					if (type != null) {
+						return type;
 					} else {
 						return detector.detect(inputStream, metadata);
 					}
