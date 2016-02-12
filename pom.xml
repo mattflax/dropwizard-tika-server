@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- Tika version -->
-		<tika.version>1.10</tika.version>
+		<tika.version>1.11</tika.version>
 		<dropwizard.version>0.8.2</dropwizard.version>
 		<mainClass>uk.co.flax.tika.TikaApplication</mainClass>
 	</properties>
