@@ -13,9 +13,16 @@
 		<!-- use UTF-8 for everything -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<!-- Tika version -->
+
+		<!-- Build to Java 7 -->
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+
 		<tika.version>1.11</tika.version>
 		<dropwizard.version>0.8.2</dropwizard.version>
+		<junit.version>4.12</junit.version>
+		<mockito.version>2.0.42-beta</mockito.version>
+
 		<mainClass>uk.co.flax.tika.TikaApplication</mainClass>
 	</properties>
 
@@ -27,8 +34,8 @@
 				<version>2.3.2</version>
 				<!-- compile for Java 1.8 -->
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -122,6 +129,19 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>18.0</version>
+		</dependency>
+
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 	</dependencies>
 </project>

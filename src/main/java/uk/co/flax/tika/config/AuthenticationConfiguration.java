@@ -25,8 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class AuthenticationConfiguration {
 
-	private static final String DEFAULT_USERNAME_PROP = "AUTH_USERNAME";
-	private static final String DEFAULT_PASSWORD_PROP = "AUTH_PASSWORD";
+	public static final String DEFAULT_USERNAME_PROP = "AUTH_USERNAME";
+	public static final String DEFAULT_PASSWORD_PROP = "AUTH_PASSWORD";
 
 	@JsonProperty("enabled")
 	private boolean enabled;
