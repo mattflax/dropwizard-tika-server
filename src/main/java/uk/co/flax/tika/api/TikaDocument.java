@@ -16,6 +16,8 @@
 
 package uk.co.flax.tika.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Map;
 
 /**
@@ -27,7 +29,7 @@ public class TikaDocument {
 
 	public static final String OK_STATUS = "OK";
 	public static final String ERROR_STATUS = "ERROR";
-	
+
 	private final String status;
 	private final String message;
 	
@@ -42,7 +44,9 @@ public class TikaDocument {
 		this(OK_STATUS, null, metadata, text);
 	}
 	
-	public TikaDocument(String status, String message, Map<String, Object> metadata, String text) {
+	public TikaDocument(@JsonProperty("status") String status, @JsonProperty("message") String message,
+			@JsonProperty("metadata") Map<String, Object> metadata,
+			@JsonProperty("text") String text) {
 		this.status = status;
 		this.message = message;
 		this.metadata = metadata;

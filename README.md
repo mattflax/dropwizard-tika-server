@@ -50,9 +50,7 @@ Each option will return a JSON object with the following values:
   "metadata": {
     // Metadata here, if using metadata or fulldata options
   },
-  "text": {
-    // Document text, if using text of fulldata options
-  }
+  "text": "Document text, if using text or fulldata options"
 }
 ```
 

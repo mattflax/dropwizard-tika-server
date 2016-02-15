@@ -1,0 +1,9 @@
+{
+  "status": "OK",
+  "metadata": {
+    "title": "Title",
+    "author": "Fred Bloggs",
+    "pages": 12
+  },
+  "text": "This is the text of our test document"
+}
