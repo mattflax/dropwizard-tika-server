@@ -37,6 +37,10 @@ import uk.co.flax.tika.api.TikaDocument;
 @Path("/tika")
 public class TikaResource extends AbstractTikaResource {
 
+	public static final String METADATA_OPKEY = "metadata";
+	public static final String FULLDATA_OPKEY = "fulldata";
+	public static final String TEXT_OPKEY = "text";
+
 	@Override
 	@PUT @Path("/{opKey}")
 	@Produces(MediaType.APPLICATION_JSON)
